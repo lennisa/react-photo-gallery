@@ -1,16 +1,127 @@
-# React + Vite
+# React Photo Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive photo gallery web application built using **React, Vite, and Tailwind CSS**.
+The app fetches images from the Picsum Photos API, displays them in a responsive grid, allows searching by author name, and lets users mark photos as favourites.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+* Fetch photos from the **Picsum Photos API**
+* Responsive photo grid
+* Real-time search filter by author name
+* Toggle favourites using **useReducer**
+* Favourite photos persist across page refresh using **localStorage**
+* Loading and error states for API requests
+* Optimized rendering using **useMemo** and **useCallback**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **React**
+* **Vite**
+* **Tailwind CSS**
+* React Hooks:
+
+  * `useState`
+  * `useEffect`
+  * `useReducer`
+  * `useMemo`
+  * `useCallback`
+
+---
+
+## API Used
+
+Picsum Photos API
+
+```
+https://picsum.photos/v2/list?limit=30
+```
+
+This API provides the photo data including image URLs and author names.
+
+---
+
+## Project Structure
+
+```
+src
+ ├ components
+ │   └ Gallery.jsx
+ ├ hooks
+ │   └ useFetchPhotos.js
+ ├ reducer
+ │   └ favouritesReducer.js
+ ├ App.jsx
+ └ main.jsx
+```
+
+---
+
+## How It Works
+
+### 1. Fetching Photos
+
+Photos are fetched using a custom hook called `useFetchPhotos`.
+The hook manages loading, error handling, and photo data.
+
+### 2. Search Filter
+
+The search input filters photos in real-time based on the author name.
+Filtering is performed locally on the already fetched data.
+
+### 3. Favourites
+
+Users can mark photos as favourites using the heart icon.
+Favourite state is managed with `useReducer`.
+
+### 4. Persistence
+
+Favourite photo IDs are stored in **localStorage**, allowing them to persist after page refresh.
+
+### 5. Performance Optimization
+
+* `useCallback` is used to memoize the search handler.
+* `useMemo` is used to compute filtered photo results efficiently.
+
+---
+
+## Running the Project
+
+Clone the repository:
+
+```
+git clone <repo-link>
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Start the development server:
+
+```
+npm run dev
+```
+
+Open the app in your browser:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Screen Recording
+
+A 5-minute screen recording explaining the project is included in the submission as required.
+
+---
+
+## Author
+
+Submitted as part of the **Frontend React Internship Pre-Screening Assignment**.
