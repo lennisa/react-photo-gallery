@@ -115,13 +115,3 @@ http://localhost:5173
 ```
 
 ---
-
-## Screen Recording
-
-A 5-minute screen recording explaining the project is included in the submission as required.
-
----
-
-## Author
-
-Submitted as part of the **Frontend React Internship Pre-Screening Assignment**.
